@@ -1,0 +1,44 @@
+{
+  "customers": [
+    {
+      "id": 19,
+      "firstname": "Salmen",
+      "lastname": "Elaid",
+      "Address": "Ibn khaldoun 2 ",
+      "City": "Tunis",
+      "Item": "Tv Samsung",
+      "ordertotal": 110,
+      "email": "samo@gmail.com"
+    },
+    {
+      "id": 1,
+      "firstname": "Omar",
+      "lastname": "Abdelkefi",
+      "Address": "Nasr 2",
+      "City": "Ariana",
+      "Item": "Nike Football x 2",
+      "ordertotal": 440,
+      "email": "omar.abdelkefi1@esprit.tn"
+    },
+    {
+      "id": 3,
+      "firstname": "Omar",
+      "lastname": "Belhadj",
+      "Address": "Bardo 2",
+      "City": "Tunis",
+      "Item": "lave vaisselle",
+      "ordertotal": 50,
+      "email": "omar.belhadj@gmail.com"
+    },
+    {
+      "id": 18,
+      "firstname": "Foulen",
+      "lastname": "Ben foulen",
+      "Address": "Ariana",
+      "City": "Tunis",
+      "Item": "samsung tv ",
+      "ordertotal": 150,
+      "email": "omar@gmail.com"
+    }
+  ]
+}

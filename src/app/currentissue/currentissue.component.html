@@ -1,0 +1,34 @@
+<h1>Contact Form</h1> 
+
+<button class="btn btn-info" style="margin:5px;" (click)="goToPage('issue')" >
+  <span>Open a new ticket</span>
+</button>
+
+<button type="button" class="btn btn-info"  style="margin:5px;">Your active tickets</button>
+
+<table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Name</th>
+        <th scope="col">Employee ID</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Complain message</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let i of listIssues">
+        <td>{{i.Name}}</td>
+        <td>{{i.Employee_ID}}</td>
+        <td>{{i.subject}}</td>
+        <td>{{i.Complain_msg}}</td>
+        
+        
+    
+      </tr>
+    
+     
+    
+    </tbody>
+  </table>

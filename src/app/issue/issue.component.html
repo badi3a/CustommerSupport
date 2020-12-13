@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>Contact Form</h1> 
+
+<button class="btn btn-info" style="margin:5px;" >
+  <span>Open a new ticket</span>
+</button>
+
+<button type="button" class="btn btn-info" (click)="goToPage('currentissue')" style="margin:5px;">Your active tickets</button>
+<h3>Here you can report an issue, a bug, or suggest an improvement</h3>
+
+
+<div class="container">
+    <form [formGroup]="registerForm">
+    <label for="fname">Name</label>
+    <input type="text" id="fname"  formControlName="Name" placeholder="Your name..">
+    <div class="alert alert-danger" *ngIf="registerForm.controls['Name'].errors && registerForm.controls['Name'].touched">
+      Name is a required filed
+     </div>
+
+    <label for="lname">Employee ID</label> <br>
+    <input type="number" formControlName="Employee_ID" placeholder="Your Employee ID">
+    <div class="alert alert-danger" *ngIf="registerForm.controls['Employee_ID'].errors && registerForm.controls['Employee_ID'].touched">
+      Employee ID is a required filed
+     </div>
+      <br>
+      <br>
+    <label for="country">Subject</label>
+    <input type="text" formControlName="subject"   placeholder="Your Subject ...">
+    <div class="alert alert-danger" *ngIf="registerForm.controls['subject'].errors && registerForm.controls['subject'].touched">
+      Subject is required
+     </div>
+      
+    <label for="subject">Complain message</label>
+    <textarea formControlName="Complain_msg"  placeholder="Write something.." style="height:200px"></textarea>
+    <div class="alert alert-danger" *ngIf="registerForm.controls['Complain_msg'].errors && registerForm.controls['Complain_msg'].touched">
+      Complain msg is a required filed
+     </div>
+
+    <button type="submit" (click)="save()" class="btn btn-success" [disabled]="registerForm.invalid">Submit</button>
+    <button class="btn btn-danger" (click)="reset()">Reset</button>
+  </form>
+</div>
+
+</body>
+</html>

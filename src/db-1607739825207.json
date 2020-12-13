@@ -1,0 +1,22 @@
+{
+  "customers": [
+    {
+      "id": 498,
+      "firstname": "aa",
+      "lastname": "aaa",
+      "Address": "aaa",
+      "City": "aaa",
+      "Item": "aaa",
+      "ordertotal": 48
+    },
+    {
+      "firstname": "aa",
+      "id": 489,
+      "lastname": "aaaaaa",
+      "Address": "aaaaaaa",
+      "City": "aaaaaa",
+      "Item": "aaaa",
+      "ordertotal": 498
+    }
+  ]
+}

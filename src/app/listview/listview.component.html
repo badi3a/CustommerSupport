@@ -1,0 +1,142 @@
+<img src="assets/custo.png" height="40"> Customers
+<button class="btn btn-info" style="margin:5px;" (click)="goToPage('customers')">
+    <span>Card view</span>
+ </button>
+
+<button type="button" class="btn btn-info" style="margin:5px;">Setting</button>
+<button type="button" class="btn btn-primary" (click)="showMe()">+ Add a customer</button>
+<br>
+<nav class="navbar">
+  <input class="form-control" type="text" name="email" [(ngModel)]="email" (ngModelChange)="Searching()"
+  placeholder="Enter Email to search">
+  </nav>
+
+<form  #f="ngForm" [hidden]="isDisplayed"  >
+
+    <h5>Please note that all fields are required and pattern must be respected </h5>
+        
+        <tr>
+       <th> <label>Id</label> </th>
+       
+
+       <th> <input type="number" class="form-control" name="id" [(ngModel)]="customer.id" #i="ngModel" required> </th> 
+       </tr>
+       <div class="alert alert-danger" *ngIf="i.invalid && i.touched">
+           ID is required
+           </div>
+
+
+        <tr>
+       <th> <label>FirstName</label> </th>
+       <th> <input type="text" class="form-control"  name="firstname" [(ngModel)]="customer.firstname" #t="ngModel" required minlength="2" pattern="[a-zA-Z ]+$"> </th>
+        </tr>
+        <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+            <div *ngIf="t.errors.required">Firstname is required </div>
+            <div *ngIf="t.errors.minlength"> Firstname minlength is 2 </div>
+            <div *ngIf="t.errors.pattern"> Pattern not respected </div>
+        </div>
+        <tr>
+       <th> <label>LastName</label> </th>
+        <th> <input type="text" class="form-control" name="lastname" [(ngModel)]="customer.lastname" #k="ngModel" required minlength="2" pattern="[a-zA-Z ]+$"> </th>
+        </tr>
+        <div class="alert alert-danger" *ngIf="k.invalid && k.touched">
+            <div *ngIf="k.errors.required">Lastname is required </div>
+            <div *ngIf="k.errors.minlength"> Lastname minlength is 2 </div>
+            <div *ngIf="k.errors.pattern"> Pattern not respected </div>
+
+        </div>
+        <tr>
+       <th> <label>Address</label> </th>
+        <th> <input type="text" class="form-control" name="Address" [(ngModel)]="customer.Address" #a="ngModel" required minlength="2"> </th>
+        </tr>
+        <div class="alert alert-danger" *ngIf="a.invalid && a.touched">
+            <div *ngIf="a.errors.required">Address is required </div>
+            <div *ngIf="a.errors.minlength"> Address minlength is 2 </div>
+            
+
+        </div>
+        <tr>
+       <th> <label>City</label> </th>
+        <th> <input type="text" class="form-control" name="City" [(ngModel)]="customer.City" #bb="ngModel" required minlength="2" pattern="[a-zA-Z ]+$"> </th>
+        </tr>
+        <div class="alert alert-danger" *ngIf="bb.invalid && bb.touched">
+            <div *ngIf="bb.errors.required">City is required </div>
+            <div *ngIf="bb.errors.minlength"> City minlength is 2 </div>
+            <div *ngIf="bb.errors.pattern"> Pattern not respected </div>
+            
+        </div>
+
+        <tr>
+       <th> <label>Item</label> </th>
+       <th>  <input type="text" name="Item" class="form-control" [(ngModel)]="customer.Item" required #lo="ngModel" minlength="2"> </th>
+        </tr>
+
+        <div class="alert alert-danger" *ngIf="lo.invalid && lo.touched">
+
+            <div *ngIf="lo.errors.required">Item is required </div>
+            <div *ngIf="lo.errors.minlength"> Item minlength is 2 </div>
+
+
+        </div>
+        
+        <tr>
+       <th> <label>OrderTotal(in USD)</label> </th>
+       <th> <input type="number" name="ordertotal" class="form-control" [(ngModel)]="customer.ordertotal"  required #ll="ngModel"> </th>
+            </tr>
+            <div class="alert alert-danger" *ngIf="ll.invalid && ll.touched">
+                <div *ngIf="ll.errors.required">OrderTotal is required </div>
+                
+            </div>
+            <tr>
+       <th>  <label>Email</label> </th>  
+        <th>  <input type="text" name="email" class="form-control" [(ngModel)]="customer.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required #lk="ngModel"> </th>
+            </tr>
+            <div class="alert alert-danger" *ngIf="lk.invalid && lk.touched">
+              <div *ngIf="lk.errors.required">Email is required </div>
+              <div *ngIf="lk.errors.pattern">Email Pattern not respected </div>
+              
+          </div>
+       <tr>  <th></th> <th> <button [disabled]="f.invalid" class="btn btn-success" *ngIf="!isEdit" (click)="save()">Save</button> </th> 
+        <th> <button class="btn btn-success" *ngIf="isEdit" (click)="updateUser(c)">Update</button>   </th>
+        </tr>
+</form>   
+ 
+
+
+<br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">Item</th>
+        <th scope="col">ordertotal</th>
+        <th scope="col">email</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let c of listCustomer">
+        
+        <th scope="row"><img  src="assets/test.png" width="30" height="30" alt="Card image cap"></th>
+        <td>{{c.firstname}}</td>
+        <td>{{c.lastname}}</td>
+        <td>{{c.Address}}</td>
+        <td>{{c.City}}</td>
+        <td>{{c.Item}}</td>
+        <td>{{c.ordertotal}}</td>
+        <td>{{c.email}}</td>
+        <td><button type="button" class="btn btn-danger"  (click)="deleteC(c.id)">-</button></td>
+        <td><button type="button" class="btn btn-warning"  (click)="update(c)">Update</button></td>
+      </tr>
+    
+     
+    
+    </tbody>
+  </table>
+
+  

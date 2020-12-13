@@ -1,0 +1,30 @@
+<nav class="navbar">
+  <input class="form-control" type="text" name="firstname" [(ngModel)]="firstname" (ngModelChange)="Search()"
+  placeholder="Enter First name to search">
+  </nav>
+<img src="assets/custo.png" height="40"> Customers
+<button type="button" class="btn btn-info" style="margin:5px;">Card view</button>
+<button class="btn btn-info" style="margin:5px;" (click)="goToPage('listview')">
+    <span>Setting</span>
+ </button>
+<br>
+
+<div *ngFor = "let c of listCustomer" style=" display: inline-block">
+    <div class="card" style="width: 10rem;">
+        <img class="card-img-top" src="assets/test.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{c.lastname}} {{c.firstname}}</h5>
+          <p class="card-text">{{c.Address}}</p>
+          <a routerLink="info/{{c.id}}" class="btn btn-primary">check order</a>
+          
+        </div>
+      </div>
+        
+
+</div>
+
+
+
+
+  
+
